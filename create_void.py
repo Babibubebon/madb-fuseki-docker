@@ -17,7 +17,7 @@ def create_void_description(date_str: str) -> str:
 
 <http://localhost:3030/madb/void/>
 {{
-    <#dataset> a void:Dataset ;
+    <http://localhost:3030/madb/#dataset> a void:Dataset ;
         dcterms:title "メディア芸術データベース ({issued}版)"@ja, "Media Arts Database (ver.{issued})"@en ;
         dcterms:license <https://mediaarts-db.bunka.go.jp/user_terms> ;
         dcterms:issued "{issued}"^^xsd:date ;
