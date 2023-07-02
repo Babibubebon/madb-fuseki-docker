@@ -32,9 +32,9 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          build-args:
-            - FUSEKI_TAG=${{ matrix.fuseki_version }}
-            - DATASET_VERSION=${{ inputs.dataset_version }} 
+          build-args: |
+            FUSEKI_TAG=${{ matrix.fuseki_version }}
+            DATASET_VERSION=${{ inputs.dataset_version }} 
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/madb-fuseki:${{ inputs.dataset_version }}
             ${{ secrets.DOCKERHUB_USERNAME }}/madb-fuseki:${{ inputs.dataset_version }}-fuseki${{ matrix.fuseki_version }}
