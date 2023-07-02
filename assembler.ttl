@@ -37,15 +37,7 @@ tdb2:DatasetTDB2  rdfs:subClassOf  ja:RDFDataset .
     .
 
 <#text-analyzer> a text:GenericAnalyzer ;
-    text:class "org.apache.lucene.analysis.shingle.ShingleAnalyzerWrapper" ;
-    text:params (
-        [ text:paramName "defaultAnalyzer" ;
-            text:paramType text:TypeAnalyzer ;
-            text:paramValue [ a text:SimpleAnalyzer ] ]
-        [ text:paramName "maxShingleSize" ;
-            text:paramType text:TypeInt ;
-            text:paramValue 3 ]
-        )
+    text:class "org.apache.lucene.analysis.cjk.CJKAnalyzer" ;
     .
 
 <#entity-map> a text:EntityMap ;
