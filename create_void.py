@@ -1,15 +1,16 @@
 import sys
 from datetime import datetime
 
-def create_void_description(date_str: str) -> str:
-    issued = datetime.strptime(date_str, '%Y%m%d').strftime('%Y-%m-%d')
+
+def create_void_description(version: str) -> str:
+    issued = datetime.strptime(version, "%Y%m%d").strftime("%Y-%m-%d")
 
     data_dump_statements = ""
-    with open(f"./versions/{date_str}.txt") as f:
+    with open(f"./versions/{version}.txt") as f:
         urls = f.read().splitlines()
         for url in urls:
             data_dump_statements += f"        void:dataDump <{url}> ;\n"
-    
+
     return f"""
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix void: <http://rdfs.org/ns/void#> .
@@ -28,9 +29,10 @@ def create_void_description(date_str: str) -> str:
 }}
 """.strip()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print('Please specify date.', file=sys.stderr)
+        print("Please specify date.", file=sys.stderr)
         exit(1)
 
     print(create_void_description(sys.argv[1]))
