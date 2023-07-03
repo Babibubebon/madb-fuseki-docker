@@ -2,6 +2,9 @@ ARG FUSEKI_TAG=4.8.0
 
 FROM secoresearch/fuseki:${FUSEKI_TAG}
 
+LABEL org.opencontainers.image.source=https://github.com/Babibubebon/madb-fuseki-docker
+LABEL org.opencontainers.image.description="A SPARQL server for Media Arts Database"
+
 ARG DATASET_VERSION=latest
 
 ADD assembler.ttl $ASSEMBLER
