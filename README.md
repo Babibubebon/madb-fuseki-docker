@@ -1,5 +1,7 @@
 # MADB-Fuseki-Docker
 
+Docker Hub: [babibubebon/madb-fuseki](https://hub.docker.com/r/babibubebon/madb-fuseki)
+
 [メディア芸術データベース](https://mediaarts-db.bunka.go.jp/)のデータセットをロードした[Apache Jena Fuseki](https://jena.apache.org/documentation/fuseki2/index.html)によるSPARQLサーバです。
 
 以下で公開されているRDFデータセットを各バージョン毎にロード済みのDockerイメージを提供します。
@@ -13,7 +15,7 @@
 docker run --rm -p 3030:3030 babibubebon/madb-fuseki:{version}
 ```
 
-`{version}` には利用したいデータセットのバージョンを `YYYYMMDD` 形式で指定します。便宜上、データセットの公開日をバージョンとして扱っています。
+タグ `{version}` には、利用したいデータセットのバージョンを `YYYYMMDD` 形式で指定します。便宜上、データセットの公開日をバージョンとして扱っています。
 
 利用可能な `{version}` は、 [`versions/*.txt`](./versions/) をご確認ください。
 
