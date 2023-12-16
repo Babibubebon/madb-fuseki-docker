@@ -1,4 +1,4 @@
-ARG FUSEKI_TAG=4.8.0
+ARG FUSEKI_TAG=4.10.0
 
 FROM secoresearch/fuseki:${FUSEKI_TAG}
 
