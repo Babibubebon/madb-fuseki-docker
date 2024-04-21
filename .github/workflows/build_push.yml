@@ -12,7 +12,7 @@ jobs:
   build:
     strategy:
       matrix:
-        fuseki_version: ["4.9.0"]
+        fuseki_version: ["4.10.0"]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
