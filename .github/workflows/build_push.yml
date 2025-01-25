@@ -9,6 +9,7 @@ on:
         type: string
 
 env:
+  FUSEKI_VERSION: "5.2.0"
   DOCKERHUB_REPO: ${{ secrets.DOCKERHUB_USERNAME }}/madb-fuseki
   GHCR_REPO: ghcr.io/babibubebon/madb-fuseki
 
@@ -16,8 +17,6 @@ jobs:
   build:
     strategy:
       matrix:
-        fuseki_version:
-          - "5.2.0"
         include:
           - os: ubuntu-24.04
             platform: linux/amd64
@@ -67,7 +66,7 @@ jobs:
           context: .
           file: ./Dockerfile
           build-args: |
-            FUSEKI_TAG=${{ matrix.fuseki_version }}
+            FUSEKI_TAG=${{ env.FUSEKI_VERSION }}
             DATASET_VERSION=${{ inputs.dataset_version }}
           platforms: ${{ matrix.platform }}
           labels: ${{ steps.meta.outputs.labels }}
@@ -123,10 +122,8 @@ jobs:
             ${{ env.DOCKERHUB_REPO }}
             ${{ env.GHCR_REPO }}
           tags: |
-            type=ref,event=branch
-            type=ref,event=pr
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
+            type=raw,value=${{ inputs.dataset_version }}
+            type=raw,value=${{ inputs.dataset_version }}-fuseki${{ env.FUSEKI_VERSION }}
 
       - name: Create manifest list and push
         working-directory: ${{ runner.temp }}/digests
