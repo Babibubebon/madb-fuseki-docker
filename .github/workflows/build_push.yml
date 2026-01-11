@@ -9,7 +9,7 @@ on:
         type: string
 
 env:
-  FUSEKI_VERSION: "5.2.0"
+  FUSEKI_VERSION: "5.5.0"
   DOCKERHUB_REPO: ${{ secrets.DOCKERHUB_USERNAME }}/madb-fuseki
   GHCR_REPO: ghcr.io/babibubebon/madb-fuseki
 
